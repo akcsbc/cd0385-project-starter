@@ -1,0 +1,6 @@
+jupyter
+pandas
+mxnet<2.0.0
+bokeh==2.0.1
+autogluon
+kaggle
