@@ -35,7 +35,7 @@ WeightedEnsemble_L3
 * scheduler is local, which is only supported option 
 * based on TabularPredictor output, for some models tuning was performed (eg. LightGBMXT_BAG_L1, XGBoost_BAG_L1)
 * For most models no hyperparameter search space was specified. In that case HPO was skipped and one model based on the provided hyperparameters was trained.
-
+* hpo2 comment (review): after specifying hyperparameters and hyperparameter_tune_kwargs the score substantially degraded
 
 ### If you were given more time with this dataset, where do you think you would spend more time?
 * feature engineering: for example day of week (my guess is that demand can change on Monday and Friday)
@@ -44,11 +44,15 @@ WeightedEnsemble_L3
 * identify and get rid of not relevant features
 
 ### Create a table with the models you ran, the hyperparameters modified, and the kaggle score.
-|model| hpo1 | hpo2  | hpo3 |score|
-|--|------|-------|------|-|
-|initial| n/a  | n/a   | n/a  |1.83581|
-|add_features| n/a  | n/a   | n/a  |0.88312|
-|hpo| 10   | local | auto |0.60480|
+hpo - only hyperparameter_tune_kwargs was specified
+hpo2 - hyperparameters and hyperparameter_tune_kwargs (review)
+
+| model        | hpo1 | hpo2  | hpo3 |score|
+|--------------|------|-------|------|-|
+| initial      | n/a  | n/a   | n/a  |1.83581|
+| add_features | n/a  | n/a   | n/a  |0.88312|
+| hpo          | 10   | local | auto |0.60480|
+| hpo 2        | 10   | local | auto |0.60480|
 
 
 ### Create a line plot showing the top model score for the three (or more) training runs during the project.
@@ -60,6 +64,6 @@ WeightedEnsemble_L3
 ![model_test_score.png](model_test_score.png)
 
 ## Summary
-3 different approaches were presented: using raw data, feature engineering and hyperparameter tuning in AutoGluon regression TabularPredictor.
+4 different approaches were presented: using raw data, feature engineering, hyperparameter_tune_kwargs and hyperparameter_tune_kwargs along with hyperparameter tuning in AutoGluon regression TabularPredictor.
 In terms of improvement, the best results were achieved by identifying new features.
 
